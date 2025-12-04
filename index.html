@@ -14,8 +14,18 @@
       --text-main: #222222;
       --text-muted: #555555;
       --border-subtle: #e0e3e5;
-      <link rel="stylesheet" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      .social-icons img.icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-icons img.icon:hover {
+  transform: scale(1.12);
+  opacity: 0.85;
+}
+
 
     }
 
@@ -255,13 +265,13 @@
           <div>Email: <a href="mailto:tanyadhaka@hotmail.com">tanyadhaka@hotmail.com</a></div>
           <div>
             <div class="social-icons">
-  <a href="https://www.linkedin.com/in/tanya-dhaka/" target="_blank" aria-label="LinkedIn">
-    <i class="fab fa-linkedin"></i>
+  <a href="https://www.linkedin.com/in/tanya-dhaka/" target="_blank">
+    <img src="linkedin.svg" class="icon" alt="LinkedIn">
   </a>
-  <a href="https://github.com/TanyaDhaka" target="_blank" aria-label="GitHub">
-    <i class="fab fa-github"></i>
+  <a href="https://github.com/TanyaDhaka" target="_blank">
+    <img src="github.svg" class="icon" alt="GitHub">
   </a>
-        </div>
+</div>
         </div>
         <nav>
           <a href="#about">About</a>
