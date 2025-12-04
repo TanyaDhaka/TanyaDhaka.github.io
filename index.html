@@ -52,24 +52,15 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background-color: rgba(245, 247, 248, 0.96);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid var(--border-subtle);
+      background-color: #111; /* dark bar */
+      border-bottom: 1px solid #000;
     }
 
     .site-header-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
       padding: 12px 0;
-    }
-
-    .brand {
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      color: var(--text-muted);
     }
 
     .main-nav {
@@ -79,14 +70,14 @@
     }
 
     .main-nav a {
-      color: var(--text-muted);
+      color: #f0f0f0;
       padding: 4px 0;
       border-bottom: 2px solid transparent;
     }
 
     .main-nav a:hover {
-      color: var(--accent);
-      border-bottom-color: var(--accent-soft);
+      color: #00c6a5;
+      border-bottom-color: #00c6a5;
       text-decoration: none;
     }
 
@@ -115,19 +106,14 @@
 
     .hero-title {
       font-size: 2.2rem;
-      font-weight: 700;
+      font-weight: 400;  /* not bold */
+      color: #000;       /* black */
       letter-spacing: 0.03em;
       margin: 0 0 6px 0;
     }
 
     .hero-title span {
       color: var(--accent);
-    }
-
-    .hero-tagline {
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin: 0 0 14px 0;
     }
 
     .hero-text {
@@ -170,15 +156,10 @@
       color: var(--text-muted);
     }
 
-    .contact-email {
-      font-weight: 500;
-    }
-
     .social-icons {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-left: 10px;
     }
 
     .social-icons img.icon {
@@ -190,7 +171,7 @@
     }
 
     .social-icons img.icon:hover {
-      transform: scale(1.08);
+      transform: scale(1.1);
       opacity: 0.85;
     }
 
@@ -283,8 +264,8 @@
       padding: 16px 0 24px 0;
       text-align: center;
       font-size: 0.8rem;
-      color: var(--text-muted);
-      background-color: var(--bg);
+      color: #f0f0f0;
+      background-color: #111; /* dark footer */
     }
 
     @media (max-width: 720px) {
@@ -322,7 +303,7 @@
   <!-- Top navigation -->
   <header class="site-header">
     <div class="container site-header-inner">
-      <div class="brand">TANYA DHAKA</div>
+      <!-- Name removed from top bar -->
       <nav class="main-nav">
         <a href="#about">About</a>
         <a href="#research">Research</a>
@@ -347,23 +328,28 @@
           <span class="hero-pill">Climate change</span>
           <span class="hero-pill">Ecohydrology</span>
           <span class="hero-pill">Remote sensing</span>
-          <span class="hero-pill">vegetation resilience</span>
+          <span class="hero-pill">Vegetation resilience</span>
           <span class="hero-pill">Environmental data science</span>
         </div>
-       <div class="contact-line">
-  <a href="mailto:tanyadhaka@hotmail.com">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" 
-         alt="Email icon" class="icon">
-  </a>
-</div>
-          <span class="social-icons">
+
+        <div class="contact-line">
+          <div class="social-icons">
+            <!-- Email icon -->
+            <a href="mailto:tanyadhaka@hotmail.com" aria-label="Email">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg"
+                   alt="Email" class="icon">
+            </a>
+            <!-- LinkedIn icon -->
             <a href="https://www.linkedin.com/in/tanya-dhaka/" target="_blank" aria-label="LinkedIn">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" class="icon" alt="LinkedIn">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+                   alt="LinkedIn" class="icon">
             </a>
+            <!-- GitHub icon -->
             <a href="https://github.com/TanyaDhaka" target="_blank" aria-label="GitHub">
-              <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="icon" alt="GitHub">
+              <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                   alt="GitHub" class="icon">
             </a>
-          </span>
+          </div>
         </div>
       </div>
 
@@ -381,7 +367,7 @@
         <h2 class="section-title">About</h2>
         <p>
           I am interested in how climate variability, water limitation, and extremes shape ecosystem function, vegetation
-          dynamics, and ecological resilience. 
+          dynamics, and ecological resilience.
         </p>
         <p>
           I previously worked for five years in semiconductor chip design at Intel Corporation, where I developed strong
@@ -405,7 +391,9 @@
 
         <ul>
           <li>
-            <strong>Vegetation Drought Recovery Modeling Using NDVI, VPD, rainfall and Soil Moisture</strong> – <a href="https://github.com/TanyaDhaka/Vegetation-Drought-Recovery-Modeling-India-vs-California-" target="_blank">🍃 View on GitHub
+            <strong>Vegetation Drought Recovery Modeling Using NDVI, VPD, rainfall, and soil moisture</strong> –
+            <a href="https://github.com/TanyaDhaka/Vegetation-Drought-Recovery-Modeling-India-vs-California-" target="_blank">
+              🍃 View on GitHub
             </a>
           </li>
           <li><strong>ML Prediction of Vegetation Stress</strong> (VPD, rainfall, landcover)</li>
@@ -414,21 +402,12 @@
         </ul>
 
         <div class="pill-row">
-          <span class="pill">Climate-ecosystem interactions</span>
+          <span class="pill">Climate–ecosystem interactions</span>
           <span class="pill">Vegetation drought response</span>
           <span class="pill">Evaporative stress</span>
           <span class="pill">Hydroclimatic variability</span>
           <span class="pill">Google Earth Engine workflow</span>
         </div>
-
-        <!-- Optional: Independent research PDF link -->
-        <!-- Make sure the filename matches your uploaded PDF -->
-        <!--
-        <p class="resource-link">
-          <strong>Independent Research Summary Report:</strong>
-          <a href="Independent_Research_Summary.pdf" target="_blank">📄 Download PDF</a>
-        </p>
-        -->
       </div>
     </section>
 
