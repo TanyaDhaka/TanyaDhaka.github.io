@@ -5,15 +5,16 @@
   <title>Tanya Dhaka</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Tanya Dhaka — Earth, climate, and environmental science.">
+
   <style>
     :root {
-      --bg: #f0f4f5;
-      --card-bg: #ffffff;
+      --bg: #f5f7f8;
+      --bg-alt: #ffffff;
       --accent: #0b877d;
-      --accent-soft: #d8f1ee;
+      --accent-soft: #d9f1ec;
       --text-main: #222222;
       --text-muted: #555555;
-      --border-subtle: #e0e3e5;
+      --border-subtle: #e1e4e6;
     }
 
     * {
@@ -21,155 +22,240 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.7;
       color: var(--text-main);
-      background: linear-gradient(180deg, #e3f3f2 0%, #f7fafb 40%, #fdfdfd 100%);
+      background-color: var(--bg);
     }
 
     a {
       color: var(--accent);
       text-decoration: none;
-      transition: color 0.15s ease, background-color 0.15s ease;
+      transition: color 0.15s ease, opacity 0.15s ease;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    .page {
-      max-width: 900px;
-      margin: 32px auto;
-      padding: 24px 20px 40px 20px;
-      background-color: var(--card-bg);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-      border-radius: 16px;
-      min-height: calc(100vh - 64px);
-      border: 1px solid rgba(0, 0, 0, 0.03);
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 24px;
-      padding-bottom: 18px;
+    /* Top navigation / site header */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background-color: rgba(245, 247, 248, 0.96);
+      backdrop-filter: blur(6px);
       border-bottom: 1px solid var(--border-subtle);
     }
 
-    .photo {
-      flex: 0 0 150px;
-      margin-right: 20px;
-      margin-bottom: 12px;
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
     }
 
-    .photo img {
-      max-width: 150px;
-      border-radius: 50%;
-      border: 2px solid var(--accent-soft);
-      display: block;
-    }
-
-    .title-block {
-      flex: 1;
-      min-width: 240px;
-    }
-
-    .name {
-      font-size: 2.1rem;
-      font-weight: 700;
-      margin: 0 0 4px 0;
-      letter-spacing: 0.02em;
-    }
-
-    .name span {
-      color: var(--accent);
-    }
-
-    .tagline {
-      font-size: 0.98rem;
-      margin: 0 0 10px 0;
+    .brand {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
       color: var(--text-muted);
     }
 
-    .contact {
+    .main-nav {
+      display: flex;
+      gap: 14px;
+      font-size: 0.9rem;
+    }
+
+    .main-nav a {
+      color: var(--text-muted);
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .main-nav a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    /* Hero section */
+
+    .hero {
+      background: linear-gradient(135deg, #eff8f7 0%, #fdfefe 60%);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: 32px;
+      padding: 48px 0 40px 0;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin: 0 0 6px 0;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin: 0 0 14px 0;
+    }
+
+    .hero-text {
+      font-size: 0.98rem;
+      max-width: 40rem;
+    }
+
+    .hero-pill-row {
+      margin-top: 10px;
+    }
+
+    .hero-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #d5e4e1;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-right: 6px;
+      margin-bottom: 4px;
+      background-color: #f7fbfa;
+    }
+
+    .hero-photo {
+      justify-self: center;
+    }
+
+    .hero-photo img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-soft);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-line {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-email {
+      font-weight: 500;
+    }
+
+    .social-icons {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 10px;
+    }
+
+    .social-icons img.icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+      border-radius: 4px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .social-icons img.icon:hover {
+      transform: scale(1.08);
+      opacity: 0.85;
+    }
+
+    /* Main content sections */
+
+    main {
+      background-color: var(--bg);
+    }
+
+    .section {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      background-color: var(--bg-alt);
+    }
+
+    .section-inner {
+      max-width: 800px;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      margin: 0 0 10px 0;
+    }
+
+    .section-subtitle {
       font-size: 0.9rem;
       color: var(--text-muted);
       margin-bottom: 10px;
     }
 
-    .contact div {
-      margin-bottom: 2px;
-    }
-
-    nav {
-      margin-top: 8px;
-      font-size: 0.9rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    nav a {
-      margin: 0;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background-color: #f3f6f7;
-      border: 1px solid transparent;
-      text-decoration: none;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      background-color: var(--accent-soft);
-      border-color: var(--accent);
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    h2 {
-      font-size: 1.25rem;
-      margin-top: 26px;
-      margin-bottom: 6px;
-      position: relative;
-      display: inline-block;
-      padding-bottom: 3px;
-    }
-
-    h2::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 40%;
-      max-width: 120px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      opacity: 0.8;
-    }
-
-    section {
-      margin-bottom: 14px;
-    }
-
     p {
-      margin-top: 6px;
-      margin-bottom: 6px;
+      margin: 6px 0;
+      font-size: 0.96rem;
       text-align: justify;
-      font-size: 0.97rem;
     }
 
     ul {
-      margin-top: 6px;
+      margin: 8px 0 4px 0;
       padding-left: 20px;
-      font-size: 0.97rem;
+      font-size: 0.96rem;
     }
 
     li {
       margin-bottom: 4px;
+    }
+
+    .pill-row {
+      margin-top: 8px;
+    }
+
+    .pill {
+      display: inline-block;
+      background-color: #f4f8f8;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 0.8rem;
+      margin-right: 6px;
+      margin-top: 4px;
+      color: var(--text-muted);
+      border: 1px solid #dde4e4;
+    }
+
+    .small {
+      font-size: 0.88rem;
+      color: var(--text-muted);
     }
 
     .pub-authors {
@@ -178,161 +264,197 @@
 
     .year {
       color: #777;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       margin-left: 4px;
     }
 
-    .small {
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    .keywords {
+    .resource-link {
       margin-top: 8px;
       font-size: 0.9rem;
-      color: var(--accent);
-      font-weight: 600;
     }
 
-    .pill {
-      display: inline-block;
-      background-color: #f4f8f8;
-      border-radius: 999px;
-      padding: 3px 10px;
-      font-size: 0.85rem;
-      margin-right: 6px;
-      margin-top: 4px;
+    .resource-link a {
+      font-weight: 500;
+    }
+
+    /* Footer */
+
+    .site-footer {
+      padding: 16px 0 24px 0;
+      text-align: center;
+      font-size: 0.8rem;
       color: var(--text-muted);
-      border: 1px solid #e1e6e7;
+      background-color: var(--bg);
     }
-/* Social icon styling */
-.social-icons img.icon {
-  width: 28px;
-  height: 28px;
-  margin-right: 10px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
 
-.social-icons img.icon:hover {
-  transform: scale(1.12);
-  opacity: 0.85;
-}
-    @media (max-width: 700px) {
-      .page {
-        margin: 16px auto;
-        padding: 18px 14px 28px 14px;
-        border-radius: 12px;
+    @media (max-width: 720px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 32px 0 28px 0;
+        text-align: left;
       }
 
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .photo {
-        margin-right: 0;
+      .hero-photo {
+        order: -1;
         margin-bottom: 12px;
       }
 
-      .name {
-        font-size: 1.8rem;
+      .hero-photo img {
+        width: 140px;
+        height: 140px;
       }
 
-      nav {
-        margin-top: 6px;
+      .site-header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .main-nav {
+        flex-wrap: wrap;
+        gap: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Cover image at top -->
-  <div class="cover">
-    <!-- Make sure 'cover.jpg' exists in your repo root -->
-    <img src="cover.jpg" alt="Landscape cover image related to Earth and climate">
-  </div>
-  <div class="page">
-    <header>
-      <div class="photo">
+
+  <!-- Top navigation -->
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <div class="brand">TANYA DHAKA</div>
+      <nav class="main-nav">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#courses">Courses</a>
+        <a href="#publications">Publications</a>
+        <a href="#cv">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero section -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="hero-kicker">Earth · Climate · Ecosystems</div>
+        <h1 class="hero-title"><span>Tanya</span> Dhaka</h1>
+        <p class="hero-tagline">
+          Climate, drought, and vegetation resilience · Remote sensing · Ecohydrology · Environmental data science
+        </p>
+        <p class="hero-text">
+          I am an aspiring Earth and environmental scientist interested in how climate variability, water availability,
+          and ecosystem processes interact to shape vegetation and habitat resilience across different biomes.
+        </p>
+        <div class="hero-pill-row">
+          <span class="hero-pill">Ecohydrology</span>
+          <span class="hero-pill">Climate–vegetation interactions</span>
+          <span class="hero-pill">Satellite remote sensing</span>
+        </div>
+        <div class="contact-line">
+          <span class="contact-email">
+            <a href="mailto:tanyadhaka@hotmail.com">tanyadhaka@hotmail.com</a>
+          </span>
+          <span class="social-icons">
+            <a href="https://www.linkedin.com/in/tanya-dhaka/" target="_blank" aria-label="LinkedIn">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" class="icon" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/TanyaDhaka" target="_blank" aria-label="GitHub">
+              <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="icon" alt="GitHub">
+            </a>
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-photo">
         <!-- Make sure 'profile1.jpg' exists in your repo root -->
         <img src="profile1.jpg" alt="Photo of Tanya Dhaka">
       </div>
-      <div class="title-block">
-        <h1 class="name"><span>Tanya</span> Dhaka</h1>
+    </div>
+  </section>
+
+  <main>
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container section-inner">
+        <h2 class="section-title">About</h2>
+        <p>
+          I am interested in how climate variability, water limitation, and extremes shape ecosystem function, vegetation
+          dynamics, and ecological resilience. My work focuses on combining satellite observations with environmental
+          data science to understand how ecosystems respond to and recover from drought.
         </p>
-        <div class="contact">
-          <div>Email: <a href="mailto:tanyadhaka@hotmail.com">tanyadhaka@hotmail.com</a></div>
-          <div>
-            <div class="social-icons">
-  <a href="https://www.linkedin.com/in/tanya-dhaka/" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" class="icon"> 
-  </a>
-  <a href="https://github.com/TanyaDhaka" target="_blank">
-    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="icon">
-  </a>
-</div>
-        </div>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#research">Research</a>
-          <a href="#Courses">Certifications</a>
-          <a href="#publications">Publications</a>
-          <a href="#outreach">Outreach</a>
-          <a href="#cv">CV</a>
-        </nav>
+        <p>
+          I previously worked for five years in semiconductor chip design at Intel Corporation, where I developed strong
+          quantitative and computational skills through large-scale data analysis, modeling, and automation. These
+          experiences motivated my transition toward climate and ecosystem science, where I aim to apply a rigorous
+          technical foundation to questions of environmental change.
+        </p>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section id="about">
-        <h2>About</h2>
+    <!-- Research -->
+    <section id="research" class="section">
+      <div class="container section-inner">
+        <h2 class="section-title">Research</h2>
         <p>
-          I am an aspiring Earth and environmental scientist interested in how climate variability, water availability, and ecosystem processes interact to shape vegetation and habitat resilience. 
+          I am broadly interested in understanding how climate variability and water limitation shape ecosystem function,
+          vegetation dynamics, and ecological resilience across diverse biomes. In my current independent research, I
+          conducted a quantitative analysis comparing vegetation drought response across two contrasting climate regimes:
+          the monsoon-driven Western Ghats of India and the Mediterranean climate of Central California.
         </p>
-        <p>
-          <strong>Ecohydrology • Climate-Vegetation Interactions • Remote Sensing • Environmental Data Science • Climate Change</strong> 
-          </p> 
-        <p> 
-          I previously worked for five years in Semiconductor chip design at Intel Corporation, where I developed strong quantitative and computational skills through large-scale data analysis, modeling, and automation. These experiences motivated my transition toward climate and ecosystem science, where I aim to apply a rigorous technical foundation to questions of environmental change. 
-        </p>
-        </p>
-        </section>
 
-      <section id="research">
-        <h2>Research</h2>
-        <p>
-          I am broadly interested in understanding how climate variability and water limitation shape ecosystem function, vegetation dynamics, and ecological resilience across diverse biomes. 
-          In my current project, I conducted a quantitative analysis comparing vegetation drought response across two contrasting climate regimes: the monsoon-driven Western Ghats of India and the Mediterranean climate of Central California.
-               
-   <ul>
-          <li>Vegetation Drought Recovery Modeling Using NDVI + VOD + Soil Moisture (India vs California)<a href="https://github.com/TanyaDhaka/Vegetation-Drought-Recovery-Modeling-India-vs-California-" target="_blank">
-    🍃 View on GitHub
-              </a></li>
-          <li>ML Prediction of Vegetation Stress (VPD + Rainfall + Landcover)</li>
-          <li>NDVI–VOD Divergence as Ecosystem Collapse Warning Signal</li>
-          <li>Wildlife Habitat Compression Under Drought</li>
+        <ul>
+          <li>
+            <strong>Vegetation Drought Recovery Modeling Using NDVI, VOD, and Soil Moisture (India vs. California)</strong> –
+            <a href="https://github.com/TanyaDhaka/Vegetation-Drought-Recovery-Modeling-India-vs-California-" target="_blank">
+              🍃 View on GitHub
+            </a>
+          </li>
+          <li><strong>ML Prediction of Vegetation Stress</strong> (VPD, rainfall, landcover)</li>
+          <li><strong>NDVI–VOD Divergence as an Ecosystem Collapse Warning Signal</strong></li>
+          <li><strong>Wildlife Habitat Compression Under Drought</strong></li>
         </ul>
-        <div>
+
+        <div class="pill-row">
           <span class="pill">Drought impacts</span>
           <span class="pill">Vegetation resilience</span>
           <span class="pill">Remote sensing</span>
           <span class="pill">Ecohydrology</span>
-          <span class="pill">Climate Change</span>
+          <span class="pill">Climate change</span>
         </div>
-      </section>
 
-      <section id="Certifications">
-        <h2>Courses</h2>
+        <!-- Optional: Independent research PDF link -->
+        <!-- Make sure the filename matches your uploaded PDF -->
+        <!--
+        <p class="resource-link">
+          <strong>Independent Research Summary Report:</strong>
+          <a href="Independent_Research_Summary.pdf" target="_blank">📄 Download PDF</a>
+        </p>
+        -->
+      </div>
+    </section>
+
+    <!-- Courses / Certifications -->
+    <section id="courses" class="section">
+      <div class="container section-inner">
+        <h2 class="section-title">Courses</h2>
+        <p class="section-subtitle">
+          Selected coursework and certifications related to Earth and environmental science.
+        </p>
         <ul>
-            <li>Climate Change: The Science
-            <li>Introduction to Environmental Science
-            <li>Introduction to Biology: Ecology, Evolution, & Biodiversity Specialization
-            <li>Animal Behaviour and Welfare
-            <li>Marine Biology
+          <li>Climate Change: The Science</li>
+          <li>Introduction to Environmental Science</li>
+          <li>Introduction to Biology: Ecology, Evolution, &amp; Biodiversity Specialization</li>
+          <li>Animal Behaviour and Welfare</li>
+          <li>Marine Biology</li>
         </ul>
-      </section>
+      </div>
+    </section>
 
-      <section id="publications">
-        <h2>Publications &amp; Manuscripts</h2>
+    <!-- Publications -->
+    <section id="publications" class="section">
+      <div class="container section-inner">
+        <h2 class="section-title">Publications &amp; Manuscripts</h2>
         <ul>
           <li>
             <span class="pub-authors">Dhaka, T.</span>
@@ -343,26 +465,34 @@
         <p class="small">
           I am actively developing manuscripts in climate and ecosystem modeling; preprints and updates will be posted here.
         </p>
-      </section>
+      </div>
+    </section>
 
-      <section id="outreach">
-        <h2>Outreach &amp; Interests</h2>
-        
-        </ul>
-      </section>
-
-      <section id="cv">
-        <h2>CV</h2>
+    <!-- CV -->
+    <section id="cv" class="section">
+      <div class="container section-inner">
+        <h2 class="section-title">CV</h2>
         <p>
           A full academic CV is available here:
           <!-- Make sure this filename matches the PDF in your repo -->
           <a href="CV Tanya Dhaka.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>.
         </p>
         <p class="small">
-          For up-to-date information on projects and publications, this website will be updated regularly.
+          For up-to-date information on projects and publications, this website will be updated periodically.
         </p>
-      </section>
-    </main>
-  </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      © <span id="year"></span> Tanya Dhaka · Earth &amp; Environmental Science
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
