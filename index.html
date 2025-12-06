@@ -73,6 +73,7 @@
       color: #f0f0f0;
       padding: 4px 0;
       border-bottom: 2px solid transparent;
+      cursor: pointer;
     }
 
     .main-nav a:hover {
@@ -185,6 +186,7 @@
       padding: 32px 0;
       border-bottom: 1px solid var(--border-subtle);
       background-color: var(--bg-alt);
+      display: none; /* hidden by default */
     }
 
     .section-inner {
@@ -463,13 +465,43 @@
 
   <footer class="site-footer">
     <div class="container">
-      <span id="year"></span> Tanya Dhaka · Earth &amp; Environmental Science
+      © <span id="year"></span> Tanya Dhaka · Earth &amp; Environmental Science
     </div>
   </footer>
 
   <script>
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Show section on nav click, keep hero always visible
+    document.addEventListener('DOMContentLoaded', function () {
+      const sections = document.querySelectorAll('.section');
+      const navLinks = document.querySelectorAll('.main-nav a');
+
+      function showSection(id) {
+        sections.forEach(sec => {
+          sec.style.display = (sec.id === id) ? 'block' : 'none';
+        });
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const id = href.substring(1);
+            showSection(id);
+            const target = document.getElementById(id);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+
+      // On load: all sections hidden (hero only)
+      sections.forEach(sec => { sec.style.display = 'none'; });
+    });
   </script>
 </body>
 </html>
