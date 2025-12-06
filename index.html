@@ -21,13 +21,20 @@
       box-sizing: border-box;
     }
 
-    body {
+    /* Make layout fill full height so footer sticks to bottom */
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
+    }
+
+    body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.7;
       color: var(--text-main);
       background-color: var(--bg);
+      display: flex;
+      flex-direction: column;
     }
 
     a {
@@ -54,6 +61,7 @@
       z-index: 20;
       background-color: #111; /* dark bar */
       border-bottom: 1px solid #000;
+      width: 100%;
     }
 
     .site-header-inner {
@@ -180,6 +188,7 @@
 
     main {
       background-color: var(--bg);
+      flex: 1; /* push footer to bottom when content is short */
     }
 
     .section {
@@ -268,6 +277,7 @@
       font-size: 0.8rem;
       color: #f0f0f0;
       background-color: #111; /* dark footer */
+      width: 100%;
     }
 
     @media (max-width: 720px) {
@@ -305,7 +315,6 @@
   <!-- Top navigation -->
   <header class="site-header">
     <div class="container site-header-inner">
-      <!-- Name removed from top bar -->
       <nav class="main-nav">
         <a href="#about">About</a>
         <a href="#research">Research</a>
