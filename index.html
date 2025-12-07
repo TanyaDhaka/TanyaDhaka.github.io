@@ -135,17 +135,16 @@
     }
 
     .hero-pill {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid #d5e4e1;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-right: 6px;
-      margin-bottom: 4px;
-      background-color: #f7fbfa;
-    }
-
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #b7e6b7;       /* green border */
+  font-size: 0.8rem;
+  color: #2e6b2e;                  /* green text */
+  margin-right: 6px;
+  margin-bottom: 4px;
+  background-color: #e5f7e5;       /* soft light green */
+}
     .hero-photo {
       justify-self: center;
     }
@@ -171,14 +170,15 @@
       gap: 8px;
     }
 
-    .social-icons img.icon {
-      width: 22px;
-      height: 22px;
-      display: block;
-      border-radius: 4px;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-      filter: grayscale(100%);
-    }
+   .social-icons img.icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  border-radius: 0;          /* no rounded square */
+  background: transparent;   /* remove background box */
+  filter: none;              /* remove grayscale */
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
 
     .social-icons img.icon:hover {
       transform: scale(1.1);
