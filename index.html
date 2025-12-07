@@ -68,7 +68,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding: 12px 0;
+      padding: 20px 0; /* increased header height */
     }
 
     .main-nav {
@@ -272,7 +272,7 @@
     /* Footer */
 
     .site-footer {
-      padding: 16px 0 24px 0;
+      padding: 28px 0 32px 0; /* increased footer height */
       text-align: center;
       font-size: 0.8rem;
       color: #f0f0f0;
@@ -474,12 +474,18 @@
 
   <footer class="site-footer">
     <div class="container">
+      © <span id="year"></span> Tanya Dhaka · Earth &amp; Environmental Science
     </div>
   </footer>
 
   <script>
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Set current year in footer (safely)
+    (function () {
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    })();
 
     // Show section on nav click, keep hero always visible
     document.addEventListener('DOMContentLoaded', function () {
